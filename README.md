@@ -1,70 +1,79 @@
-# Getting Started with Create React App
+♟️ React Chess Board — “Check Yourself”
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+From public holiday boredom… to a full-blown chessboard obsession.
 
-## Available Scripts
+🧩 The Story
 
-In the project directory, you can run:
+Problem statement - my friend told me she doesn't know how to play chess and what movement each piece can/cannot do.
 
-### `npm start`
+Opportunity -
+It was Deepavali & I got bored — so instead of doing normal-people things,
+with a jar full of murrukus, I ended up deep-diving into code (again).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Back in my study days, I built a simple chess game (using Java) for a school project. 
+This time, I decided to rebuild it from scratch — to see how far I’ve leveled up since then (and to dust off my logic-thinking muscles 🧠).
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+So here we are — a fully working, turn-based chessboard built in React.
+It started small, then… well, I got carried away.
 
-### `npm test`
+🕹️ Features That Make Me Proud
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+🎨 Fully interactive chessboard — rendered purely with React + styled-components
 
-### `npm run build`
+⚡ Turn-based play — automatic switching between white and black
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+♟️ Real chess logic — each piece follows its legal moves
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+💅 Clean, responsive layout — looks good on any screen size
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+💡 Readable, modular code — every piece has its own movement brain
 
-### `npm run eject`
+⚙️ Tech I Used
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+React — because who doesn’t love components
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Styled-components — styling that stays classy and scoped
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+JavaScript (ES6) — because logic deserves some clarity
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+npm / CRA — for setup and running it all
 
-## Learn More
+🚀 Run It Yourself
+git clone https://github.com/<your-username>/react-chess-board.git
+cd react-chess-board
+npm install
+npm start
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Then open 👉 http://localhost:3000
 
-### Code Splitting
+🧠 What I Learned (or Re-learned)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Chess logic gets really tricky when you code it from scratch
 
-### Analyzing the Bundle Size
+React’s re-render rules can test your patience
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Writing clean, modular logic saves future-you a lot of pain
 
-### Making a Progressive Web App
+Debugging + marukkus at 2 a.m. & Kuch Kuch Hota Hai OSTs on the background = BEST DEEPAVALI VIBES EVER????!!!
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+🧭 Next on the Board
 
-### Advanced Configuration
+⏱ Add check & checkmate detection
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+🧑‍🤝‍🧑 Add multiplayer via WebSocket or Firebase
 
-### Deployment
+🤖 Maybe a baby AI opponent
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+🔊 Add move animations + sound effects
 
-### `npm run build` fails to minify
+🧠 Build a small game history tracker
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+🧍‍♀️ About Me
+
+Hey, I’m Nurizzati Rohim — I build things that mix logic + aesthetics.
+Half designer, half bug-hunter, 100% fueled by curiosity (and matcha), undiagnosed attention deficit slay-er💅
+
+“Still got a few more items to redo...
+Guess I’ll see you guys next public holiday.
+Or maybe Christmas — who knows, haha.”
