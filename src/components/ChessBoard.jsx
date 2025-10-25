@@ -17,6 +17,18 @@ const PageWrapper = styled.div`
   min-height: 100vh;
   background-color: #f5f5f5;
 `;
+
+const TurnIndicator = styled.div`
+  margin-left: 10px;
+  text-align: center;
+  font-size: 20px;
+  padding: 2px 5px;
+  border-radius: 30px;
+  background-color: #b7548a;
+  color: ${(props) => (props.turn === "white" ? "#000" : "#fff")};
+  transition: all 0.3s ease;
+`;
+
 const BoardWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(8, 1fr);
@@ -175,6 +187,7 @@ export default function ChessBoard() {
   return (
     <PageWrapper>
       <BoardWrapper>{renderBoard()}</BoardWrapper>
+      <TurnIndicator>{turn === "white" ? "⚪" : "⚫"}</TurnIndicator>
     </PageWrapper>
   );
 }
