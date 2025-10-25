@@ -1,48 +1,27 @@
-import { getPieceColor } from "./pieceIdentity";
+import { getPieceColor } from "../pieces/pieceIdentity";
+import { getNonSlidingMoves, getSlidingMoves } from "./movementUtils";
+import {
+  ROOK_PIECE,
+  BISHOP_PIECE,
+  QUEEN_PIECE,
+  KNIGHT_PIECE,
+  KING_PIECE,
+} from "../pieces/pieceDirections";
+
+//sliding moves
 export function calculateLegalMovesForRook(piece, row, col, board) {
-  const moves = [];
-  const pieceColor = getPieceColor(piece);
-
-  if (!piece) return moves;
-
-  const directions = [
-    [1, 0], //down
-    [-1, 0], //up
-    [0, 1], //right
-    [0, -1], //left
-  ];
-
-  directions.forEach(([dr, dc]) => {
-    let currentRow = row + dr;
-    let currentCol = col + dc;
-
-    while (
-      currentRow >= 0 &&
-      currentRow < 8 &&
-      currentCol >= 0 &&
-      currentCol < 8
-    ) {
-      const target = board[currentRow][currentCol];
-      const targetColor = getPieceColor(target);
-
-      if (!target) {
-        moves.push({ row: currentRow, col: currentCol });
-      } else {
-        if (targetColor !== pieceColor) {
-          moves.push({ row: currentRow, col: currentCol });
-        }
-
-        break;
-      }
-
-      currentRow += dr;
-      currentCol += dc;
-    }
-  });
-
-  return moves;
+  return getSlidingMoves(piece, row, col, board, ROOK_PIECE);
 }
 
+export function calculateLegalMovesForQueen(piece, row, col, board) {
+  return getSlidingMoves(piece, row, col, board, QUEEN_PIECE);
+}
+
+export function calculateLegalMovesForBishop(piece, row, col, board) {
+  return getSlidingMoves(piece, row, col, board, BISHOP_PIECE);
+}
+
+// non sliding moves
 export function calculateLegalMovesForPawn(piece, row, col, board) {
   const moves = [];
   const pieceColor = getPieceColor(piece);
@@ -81,10 +60,10 @@ export function calculateLegalMovesForPawn(piece, row, col, board) {
 
 export function calculateLegalMovesForKing(piece, row, col, board) {
   // king has the same move as pawn except it can makan in all directions
-  const moves = [];
-  const pieceColor = getPieceColor(piece);
+  // const moves = [];
+  // const pieceColor = getPieceColor(piece);
 
-  for (const upwardBackwardMovement of [-1, 0, 1]) {
+  /*for (const upwardBackwardMovement of [-1, 0, 1]) {
     const targetRow = row + upwardBackwardMovement;
 
     for (const leftRightMovement of [-1, 0, 1]) {
@@ -106,81 +85,47 @@ export function calculateLegalMovesForKing(piece, row, col, board) {
         }
       }
     }
-  }
+  }*/
 
-  return moves;
-}
-
-export function calculateLegalMovesForQueen(piece, row, col, board) {
-  // list of directions allowed for queen
-  const moves = [];
-  const directions = [
-    [-1, -1],
-    [-1, 0],
-    [-1, 1],
-    [0, -1],
-    [0, 1],
-    [1, -1],
-    [1, 0],
-    [1, 1],
-  ];
-
-  for (const [dr, dc] of directions) {
+  /*for (const [dr, dc] of KING_PIECE) {
     let targetRow = row + dr;
     let targetCol = col + dc;
 
-    while (targetRow >= 0 && targetRow < 8 && targetCol >= 0 && targetCol < 8) {
+    if (targetRow >= 0 && targetRow < 8 && targetCol >= 0 && targetCol < 8) {
       const target = board[targetRow][targetCol];
 
       if (!target) {
         moves.push({ row: targetRow, col: targetCol });
-      } else {
-        if (getPieceColor(target) !== getPieceColor(piece)) {
-          moves.push({ row: targetRow, col: targetCol });
-        }
-
-        break;
+      } else if (target && getPieceColor(target) !== pieceColor) {
+        moves.push({ row: targetRow, col: targetCol });
       }
-
-      targetRow += dr;
-      targetCol += dc;
     }
   }
 
-  return moves;
+  return moves;*/
+
+  return getNonSlidingMoves(piece, row, col, board, KING_PIECE);
 }
 
-export function calculateLegalMovesForBishop(piece, row, col, board) {
-  const moves = [];
-  const directions = [
-    [-1, -1],
-    [-1, 1],
-    [1, -1],
-    [1, 1],
-  ];
+export function calculateLegalMovesForKnight(piece, row, col, board) {
+  /*const moves = [];
+  const pieceColor = getPieceColor(piece);
 
-  for (const [dr, dc] of directions) {
-    let targetRow = dr + row;
-    let targetCol = dc + col;
+  for (const [dr, dc] of KNIGHT_PIECE) {
+    let targetRow = row + dr;
+    let targetCol = col + dc;
 
-    while (targetRow >= 0 && targetRow < 8 && targetCol >= 0 && targetCol < 8) {
+    if (targetRow >= 0 && targetRow < 8 && targetCol >= 0 && targetCol < 8) {
       const target = board[targetRow][targetCol];
 
       if (!target) {
         moves.push({ row: targetRow, col: targetCol });
-      } else if (target) {
-        if (getPieceColor(target) !== getPieceColor(piece)) {
-          moves.push({ row: targetRow, col: targetCol });
-        }
-
-        break;
+      } else if (target && getPieceColor(target) !== pieceColor) {
+        moves.push({ row: targetRow, col: targetCol });
       }
-      targetRow += dr;
-      targetCol += dc;
     }
   }
 
-  return moves;
+  return moves;*/
+  return getNonSlidingMoves(piece, row, col, board, KNIGHT_PIECE);
 }
-
-export function calculateLegalMovesForKnight(piece, row, col, board) {}

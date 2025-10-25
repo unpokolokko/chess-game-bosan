@@ -6,8 +6,9 @@ import {
   calculateLegalMovesForKing,
   calculateLegalMovesForQueen,
   calculateLegalMovesForBishop,
-} from "../utils/legalMoves";
-import { getPieceColor } from "../utils/pieceIdentity";
+  calculateLegalMovesForKnight,
+} from "../utils/functions/makeMoves";
+import { getPieceColor } from "../utils/pieces/pieceIdentity";
 
 const PageWrapper = styled.div`
   display: flex;
@@ -66,8 +67,6 @@ export default function ChessBoard() {
   }, [currentBoard]);
 
   const getLegalMoves = (piece, row, col, board) => {
-    console.log("piece", piece);
-
     //rook
     if (piece === "♜" || piece === "♖") {
       return calculateLegalMovesForRook(piece, row, col, board);
@@ -92,32 +91,17 @@ export default function ChessBoard() {
     if (piece === "♝" || piece === "♗") {
       return calculateLegalMovesForBishop(piece, row, col, board);
     }
+
+    if (piece === "♞" || piece === "♘") {
+      return calculateLegalMovesForKnight(piece, row, col, board);
+    }
   };
 
   const checkForLegalMovement = (row, col) => {
     let legit = true;
-    const piece = currentBoard[selected.row][selected.col];
+    //const piece = currentBoard[selected.row][selected.col];
 
-    if (piece === "♜" || piece === "♖") {
-      legit = legalMoves.some((m) => m.row === row && m.col === col);
-    }
-
-    if (piece === "♟" || piece === "♙") {
-      legit = legalMoves.some((m) => m.row === row && m.col === col);
-    }
-
-    if (piece === "♚" || piece === "♔") {
-      legit = legalMoves.some((m) => m.row === row && m.col === col);
-    }
-
-    if (piece === "♛" || piece === "♕") {
-      legit = legalMoves.some((m) => m.row === row && m.col === col);
-    }
-
-    if (piece === "♝" || piece === "♗") {
-      legit = legalMoves.some((m) => m.row === row && m.col === col);
-    }
-
+    legit = legalMoves.some((m) => m.row === row && m.col === col);
     return legit;
   };
 
@@ -153,27 +137,8 @@ export default function ChessBoard() {
     ) {
       //select piece - only allow to select own piece
       //retrieve the legal moves by selected piece
-      if (selectedPiece === "♜" || selectedPiece === "♖") {
-        console.log("--- retrieving legal possible moves for rook ---");
-        setLegalMoves(getLegalMoves(selectedPiece, row, col, currentBoard));
-      }
-      if (selectedPiece === "♟" || selectedPiece === "♙") {
-        console.log("--- retrieving legal possible moves for pawn ---");
-        setLegalMoves(getLegalMoves(selectedPiece, row, col, currentBoard));
-      }
-      if (selectedPiece === "♚" || selectedPiece === "♔") {
-        console.log("--- retrieving legal possible moves for king ---");
-        setLegalMoves(getLegalMoves(selectedPiece, row, col, currentBoard));
-      }
-      if (selectedPiece === "♛" || selectedPiece === "♕") {
-        console.log("--- retrieving legal possible moves for queen ---");
-        setLegalMoves(getLegalMoves(selectedPiece, row, col, currentBoard));
-      }
-      if (selectedPiece === "♝" || selectedPiece === "♗") {
-        console.log("--- retrieving legal possible moves for bishop ---");
-        setLegalMoves(getLegalMoves(selectedPiece, row, col, currentBoard));
-      }
 
+      setLegalMoves(getLegalMoves(selectedPiece, row, col, currentBoard));
       setSelected({ row, col });
     }
   };
