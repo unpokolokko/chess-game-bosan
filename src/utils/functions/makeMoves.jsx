@@ -87,45 +87,9 @@ export function calculateLegalMovesForKing(piece, row, col, board) {
     }
   }*/
 
-  /*for (const [dr, dc] of KING_PIECE) {
-    let targetRow = row + dr;
-    let targetCol = col + dc;
-
-    if (targetRow >= 0 && targetRow < 8 && targetCol >= 0 && targetCol < 8) {
-      const target = board[targetRow][targetCol];
-
-      if (!target) {
-        moves.push({ row: targetRow, col: targetCol });
-      } else if (target && getPieceColor(target) !== pieceColor) {
-        moves.push({ row: targetRow, col: targetCol });
-      }
-    }
-  }
-
-  return moves;*/
-
   return getNonSlidingMoves(piece, row, col, board, KING_PIECE);
 }
 
 export function calculateLegalMovesForKnight(piece, row, col, board) {
-  /*const moves = [];
-  const pieceColor = getPieceColor(piece);
-
-  for (const [dr, dc] of KNIGHT_PIECE) {
-    let targetRow = row + dr;
-    let targetCol = col + dc;
-
-    if (targetRow >= 0 && targetRow < 8 && targetCol >= 0 && targetCol < 8) {
-      const target = board[targetRow][targetCol];
-
-      if (!target) {
-        moves.push({ row: targetRow, col: targetCol });
-      } else if (target && getPieceColor(target) !== pieceColor) {
-        moves.push({ row: targetRow, col: targetCol });
-      }
-    }
-  }
-
-  return moves;*/
   return getNonSlidingMoves(piece, row, col, board, KNIGHT_PIECE);
 }
